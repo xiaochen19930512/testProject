@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>选课卡</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/common.css" rel="stylesheet" />
+		<style>
+		</style>
+	</head>
+	<body style="max-width:1080px;margin:0 auto;">
+		<div class="cardContainer">
+			<div class="cardTop1">
+				<img src="img/cardBgTop1.jpg" />
+			</div>
+			<div class="cardTop2">
+				<div class="timeBox">
+					<div id="getTime"></div>
+				</div>
+				<img src="img/cardBgTop2.jpg" />
+			</div>
+			<div class="cardTop3">
+				<img src="img/cardBgTop3.jpg" />
+			</div>
+			<div class="cardMain">
+				<div class="cardMainBody">
+					<div class="infoGroup">
+						
+						<div class="infoGroup_name">殷雨晨</div>
+						<div class="infoGroup_sch"><img src="img/bzyIcon.jpg"/>北京工商大学</div>
+						<div class="info-code">
+							3723241984******11
+						</div>
+					</div>
+					<div class="alertBar">
+						<img class="alertSign" src="img/alertSign.png" />
+						<marquee style="margin-top:2%" align="middle">参加课程共享需出示本选课证和身份证或学生证等有效证件入校。</marquee>
+					</div>
+					<!--今日课程-->
+					<div class="classBox">
+						<div class="classBoxTitle">
+							我的选课
+						</div>
+						<div class="todayCourseContent">
+							<!--一个学校的课程信息-->
+						    <div class="weui-cell-list">
+						        <div class="weui-cell-timeBox"><div class="weui-cell-circle"></div><span>北京中医药大学</span></div>
+						            <div class="weui-cell-line">
+						                <div class="weui-cell-name">药理学</div>
+						    			<div class="weui-cell-name">疫苗工程学</div>
+						    		</div>
+						    </div>
+							<!--一个学校的课程信息-->
+							<div class="weui-cell-list">
+							    <div class="weui-cell-timeBox"><div class="weui-cell-circle"></div><span>北京理工大学</span></div>
+							        <div class="weui-cell-line">
+							            <div class="weui-cell-name">高等数学</div>
+									</div>
+							</div>
+						  </div>
+							
+					</div>
+				</div>
+			</div>
+			<div class="cardBottom">
+				<img src="img/cardTopBottom.jpg" />
+			</div>
+		</div>
+	</body>
+	<script>
+		//获取时间
+		window.onload=function()
+					{
+						window.requestAnimationFrame(getDate)
+					}
+					
+					function getDate()
+					{
+						window.setTimeout(function(){
+							window.requestAnimationFrame(getDate)
+						},1000/2)
+						var d=new Date();   
+						var year=d.getFullYear()  //获取年
+						var month=d.getMonth()+1;  //获取月，从 Date 对象返回月份 (0 ~ 11)，故在此处+1
+						var day=d.getDay()    //获取日
+						var days=d.getDate() //获取日期
+						var hour=d.getHours()   //获取小时
+						var minute=d.getMinutes()  //获取分钟
+						var second=d.getSeconds()   //获取秒
+						
+						if(month<10) month="0"+month
+						if(days<10) days="0"+days
+						if(hour<10) hour="0"+hour
+						if(minute<10) minute="0"+minute
+						if(second<10) second="0"+second
+						
+						var week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六")
+						var Tools=document.getElementById("getTime")
+						var da=year+"-"+month+"-"+days+" "+hour+":"+minute+":"+second
+						Tools.innerHTML=da
+					}
+	</script>
+</html>
